@@ -188,7 +188,7 @@
     },
     {
         "name": "bmc-address",
-        "short_description": "Bare Metal Cloud Username [*Bare Metal only*]",
+        "short_description": "Bare Metal Cloud Address [*Bare Metal only*]",
         "description": "Only needed for Baremetal ( bm ) - IPMI/bmc address",
         "variable": "BMC_ADDR",
         "type": "string",
