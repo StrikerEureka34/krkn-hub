@@ -1,0 +1,63 @@
+name: Dispatch docs update on merged PR
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+    paths:
+      - '**/env.sh'
+      - '**/krknctl-input.json'
+
+jobs:
+  dispatch-docs-update:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract changed scenarios from PR file list
+        id: scenarios
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_TOKEN }}
+        run: |
+          # Parse scenario names from changed file paths.
+          # e.g. node-interface-down/env.sh -> node-interface-down
+          # dirname gives the folder, basename strips any parent path segments.
+          SCENARIOS=$(gh pr view ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --json files \
+            --jq '.files[].path' \
+            | grep -E '(env\.sh|krknctl-input\.json)$' \
+            | xargs -I{} dirname {} \
+            | xargs -I{} basename {} \
+            | grep -v '^\.' \
+            | sort -u)
+          echo "Detected scenarios: $SCENARIOS"
+          {
+            echo "list<<EOF"
+            echo "$SCENARIOS"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Dispatch one event per scenario
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_TOKEN }}
+        run: |
+          while IFS= read -r scenario; do
+            [ -z "$scenario" ] && continue
+            echo "Dispatching for: $scenario"
+            jq -n \
+              --arg scenario "$scenario" \
+              --arg pr_number "${{ github.event.pull_request.number }}" \
+              --arg pr_title "${{ github.event.pull_request.title }}" \
+              '{
+                event_type: "upstream_docs_change",
+                client_payload: {
+                  scenario: $scenario,
+                  pr_number: $pr_number,
+                  pr_title: $pr_title,
+                  repo: "krkn-hub"
+                }
+              }' \
+            | gh api repos/${{ github.repository_owner }}/website/dispatches \
+                --method POST \
+                --input -
+          done <<< "${{ steps.scenarios.outputs.list }}"
