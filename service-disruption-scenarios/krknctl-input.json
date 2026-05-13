@@ -27,6 +27,15 @@
         "required":"false"
     },
     {
+        "name":"sleep",
+        "short_description":"Sleep",
+        "description":"Number of seconds to wait before polling to see if the disrupted namespace recovers",
+        "variable":"SLEEP",
+        "type":"number",
+        "default":"15",
+        "required":"false"
+    },
+    {
         "name":"runs",
         "short_description":"Runs",
         "description":"Number of runs to execute the action",
