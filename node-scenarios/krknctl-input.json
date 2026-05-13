@@ -224,8 +224,8 @@
     },
     {
         "name": "ibmc-cnr",
-        "short_description": "IBM Cloud Power Workspace CNR [*IBM Power Cloud only*]",
-        "description": "IBM Cloud Power Workspace CNR",
+        "short_description": "IBM Cloud Power Workspace CRN [*IBM Power Cloud only*]",
+        "description": "Cloud Resource Name (CRN) identifier for the IBM Cloud Power workspace",
         "variable": "IBMC_POWER_CRN",
         "type": "string",
         "default": "",
