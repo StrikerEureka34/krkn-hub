@@ -299,27 +299,5 @@
         "type": "file",
         "required": "false",
         "mount_path": "/home/krkn/osServiceAccount.json"
-    },
-    {
-        "name": "verify-session",
-        "short_description": "Verify Session",
-        "description": "Verify that the Kubernetes API session remains reachable during the node scenario execution",
-        "variable": "VERIFY_SESSION",
-        "type": "enum",
-        "allowed_values": "true,false",
-        "separator": ",",
-        "default": "false",
-        "required": "false"
-    },
-    {
-        "name": "skip-openshift-checks",
-        "short_description": "Skip OpenShift Checks",
-        "description": "Skip OpenShift-specific health checks during the scenario; useful when running against vanilla Kubernetes clusters",
-        "variable": "SKIP_OPENSHIFT_CHECKS",
-        "type": "enum",
-        "allowed_values": "true,false",
-        "separator": ",",
-        "default": "false",
-        "required": "false"
     }
 ]
