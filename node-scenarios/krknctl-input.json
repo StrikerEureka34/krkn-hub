@@ -101,7 +101,7 @@
     {
         "name": "duration",
         "short_description": "Duration",
-        "description": "Duration to wait for completion of node scenario injection",
+        "description": "Duration in seconds to keep the node in the disrupted state before recovery",
         "variable": "DURATION",
         "type": "number",
         "default": "120",
