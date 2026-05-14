@@ -1,8 +1,8 @@
 [
     {
         "name":"run-uuid",
-        "short_description":"Run UUID that needs to be rolled back",
-        "description":"Krkn Run UUID that needs to be rolled back.",
+        "short_description":"Run UUID",
+        "description":"Unique identifier of a previous Krkn run whose chaos actions should be reverted. Retrieve this from the Krkn run logs or the rollback API output.",
         "variable":"RUN_UUID",
         "type":"string",
         "default":"",
