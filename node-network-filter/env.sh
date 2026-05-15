@@ -1,3 +1,6 @@
+#!/bin/bash
+
+# Environment variables and defaults for the node-network-filter scenario
 export TEST_DURATION=${TOTAL_CHAOS_DURATION:="60"}
 export LABEL_SELECTOR=${NODE_SELECTOR:=""}
 export NAMESPACE=${NAMESPACE:="default"}
