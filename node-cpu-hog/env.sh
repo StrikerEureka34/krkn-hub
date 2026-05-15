@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Vars and respective defaults for node-cpu-hog
+# Vars and respective defaults
 export TOTAL_CHAOS_DURATION=${TOTAL_CHAOS_DURATION:="60"}
 export NODE_CPU_CORE=${NODE_CPU_CORE:=""}
 export NODE_CPU_PERCENTAGE=${NODE_CPU_PERCENTAGE:="50"}
