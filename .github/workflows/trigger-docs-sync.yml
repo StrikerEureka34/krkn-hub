@@ -15,17 +15,28 @@ jobs:
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          installation_retrieval_mode: owner
+          installation_retrieval_payload: StrikerEureka34
 
-      - name: Extract scenario from changed files
+      - name: Extract scenario and check relevance
         id: scenario
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          SCENARIO=$(gh api repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files \
-            --jq '.[].filename | split("/")[0]' | sort -u | grep -v '^\.' | head -1)
+          FILES=$(gh api repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files \
+            --jq '.[].filename')
+          SCENARIO=$(echo "$FILES" | awk -F'/' '{print $1}' | sort -u | grep -v '^\.' | head -1)
+          if echo "$FILES" | grep -qE '(env\.sh|krknctl-input\.json|README\.md)'; then
+            echo "relevant=true" >> $GITHUB_OUTPUT
+            echo "Docs-relevant files changed in $SCENARIO, dispatching sync."
+          else
+            echo "relevant=false" >> $GITHUB_OUTPUT
+            echo "No doc-relevant files changed (env.sh / krknctl-input.json / README.md). Skipping dispatch."
+          fi
           echo "name=$SCENARIO" >> $GITHUB_OUTPUT
 
       - name: Send docs dispatch to website
+        if: steps.scenario.outputs.relevant == 'true'
         run: |
           curl -s -X POST \
             -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
