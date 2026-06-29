@@ -20,7 +20,6 @@ export DISABLE_SSL_VERIFICATION=${DISABLE_SSL_VERIFICATION:=false}
 
 export CAPTURE_METRICS=${CAPTURE_METRICS:=false}
 export ENABLE_ALERTS=${ENABLE_ALERTS:=false}
-export RETRY_WAIT=${RETRY_WAIT:=5}
 
 # Baremetal vars
 export BMC_USER=${BMC_USER:=""}
