@@ -22,6 +22,7 @@ export CAPTURE_METRICS=${CAPTURE_METRICS:=false}
 export ENABLE_ALERTS=${ENABLE_ALERTS:=false}
 export RETRY_WAIT=${RETRY_WAIT:=5}
 export RETRY_COUNT=${RETRY_COUNT:=3}
+export MAX_NODES_AFFECTED=${MAX_NODES_AFFECTED:=1}
 
 # Baremetal vars
 export BMC_USER=${BMC_USER:=""}
