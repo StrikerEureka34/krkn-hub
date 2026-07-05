@@ -1,3 +1,3 @@
 #!/bin/bash
 
-export RUN_UUID=${RUN_UUID:=""}
+export RUN_UUID=${RUN_UUID:=""}export DEMO_ROLLBACK_DELAY=${DEMO_ROLLBACK_DELAY:=30}
