@@ -13,3 +13,4 @@ export IMAGE=${IMAGE:="quay.io/krkn-chaos/krkn-hog"}
 export SCENARIO_TYPE=${SCENARIO_TYPE:=hog_scenarios}
 export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/kube/cpu-hog.yml}
 
+# doc-sync retrofit test trigger
