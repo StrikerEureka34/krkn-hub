@@ -17,17 +17,18 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: Find the changed scenario
+      - name: Find the changed scenarios
         id: scenario
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           files=$(gh api "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" --jq '.[].filename')
-          scenario=$(echo "$files" | grep -E '^[^/]+/(env\.sh|krknctl-input\.json)$' | cut -d/ -f1 | sort -u | head -1)
-          if [ -n "$scenario" ]; then
+          # A single PR can touch several scenarios; sync every one, not just the first.
+          scenarios=$(echo "$files" | grep -E '^[^/]+/(env\.sh|krknctl-input\.json)$' | cut -d/ -f1 | sort -u | tr '\n' ' ')
+          if [ -n "$scenarios" ]; then
             echo "relevant=true" >> "$GITHUB_OUTPUT"
-            echo "name=$scenario" >> "$GITHUB_OUTPUT"
-            echo "Dispatching doc-sync for scenario: $scenario"
+            echo "names=$scenarios" >> "$GITHUB_OUTPUT"
+            echo "Changed scenarios: $scenarios"
           else
             echo "relevant=false" >> "$GITHUB_OUTPUT"
             echo "No scenario env.sh / krknctl-input.json changed; skipping."
@@ -48,6 +49,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
+          # One dispatch carrying every changed scenario; the bot opens a single PR.
           gh workflow run doc-sync.lock.yml \
             --repo StrikerEureka34/website_2 \
-            -f scenario="${{ steps.scenario.outputs.name }}"
+            -f scenarios="${{ steps.scenario.outputs.names }}"
