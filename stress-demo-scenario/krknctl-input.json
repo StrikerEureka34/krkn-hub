@@ -1,0 +1,23 @@
+[
+  {
+    "variable": "TARGET_NAMESPACE",
+    "type": "string",
+    "default": "default",
+    "description": "Namespace where the stress demo scenario runs.",
+    "required": false
+  },
+  {
+    "variable": "CHAOS_DURATION",
+    "type": "number",
+    "default": "60",
+    "description": "Duration of the stress demo in seconds.",
+    "required": false
+  },
+  {
+    "variable": "FAILURE_RATE",
+    "type": "number",
+    "default": "50",
+    "description": "Percentage of requests to fail during the run.",
+    "required": false
+  }
+]

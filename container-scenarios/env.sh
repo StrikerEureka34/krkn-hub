@@ -5,8 +5,7 @@ export NAMESPACE=${NAMESPACE:="openshift-etcd"}
 export LABEL_SELECTOR=${LABEL_SELECTOR:="k8s-app=etcd"}
 export EXCLUDE_LABEL=${EXCLUDE_LABEL:""}
 export EXPECTED_RECOVERY_TIME=${EXPECTED_RECOVERY_TIME:=60}
-export DISRUPTION_COUNT=${DISRUPTION_COUNT:=1}
-export CONTAINER_NAME=${CONTAINER_NAME:=etcd}
+export DISRUPTION_COUNT=${DISRUPTION_COUNT:=3}
 export ACTION=${ACTION:=1}
 export SCENARIO_TYPE=${SCENARIO_TYPE:=container_scenarios}
 export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/container_scenario.yaml}
