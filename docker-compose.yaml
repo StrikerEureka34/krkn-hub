@@ -149,3 +149,8 @@ services:
         context: ./
         dockerfile: ./dummy-scenario/Dockerfile
       image: quay.io/krkn-chaos/krkn-hub:dummy-scenario
+    node-network-chaos:
+      build:
+        context: ./
+        dockerfile: ./node-network-chaos/Dockerfile
+      image: quay.io/krkn-chaos/krkn-hub:node-network-chaos
