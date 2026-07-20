@@ -1,0 +1,20 @@
+[
+    {
+        "name": "action",
+        "short_description": "Action",
+        "description": "Demo action for the stress-test scenario",
+        "variable": "ACTION",
+        "type": "string",
+        "default": "demo_drift_scenario",
+        "required": "true"
+    },
+    {
+        "name": "duration",
+        "short_description": "Duration",
+        "description": "How long the demo scenario runs, in seconds",
+        "variable": "DURATION",
+        "type": "number",
+        "default": "60",
+        "required": "false"
+    }
+]
