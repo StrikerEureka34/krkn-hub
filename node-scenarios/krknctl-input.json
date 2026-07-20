@@ -96,7 +96,16 @@
         "description": "Duration to wait for completion of node scenario injection",
         "variable": "TIMEOUT",
         "type": "number",
-        "default": "180",
+        "default": "300",
+        "required": "false"
+    },
+    {
+        "name": "max-retries",
+        "short_description": "Max Retries",
+        "description": "Number of times to retry the node action before giving up",
+        "variable": "MAX_RETRIES",
+        "type": "number",
+        "default": "3",
         "required": "false"
     },
     {
@@ -241,17 +250,6 @@
         "default": "",
         "required": "false",
         "secret": "true"
-    },
-    {
-        "name": "disable-ssl-verification",
-        "short_description": "Disable SSL Verification [*IBM Cloud only*]",
-        "description": "Disable SSL certificate verification",
-        "variable": "DISABLE_SSL_VERIFICATION",
-        "type": "enum",
-        "allowed_values": "true,false,True,False",
-        "separator": ",",
-        "default": "false",
-        "required": "true"
     },
     {
         "name": "azure-tenant",
