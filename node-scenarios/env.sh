@@ -8,7 +8,8 @@ export NODE_NAME=${NODE_NAME:=""}
 export INSTANCE_COUNT=${INSTANCE_COUNT:=1}
 export RUNS=${RUNS:=1}
 export CLOUD_TYPE=${CLOUD_TYPE:="aws"}
-export TIMEOUT=${TIMEOUT:=180}
+export TIMEOUT=${TIMEOUT:=300}
+export MAX_RETRIES=${MAX_RETRIES:=3}
 export DURATION=${DURATION:=120}
 export PARALLEL=${PARALLEL:=false}
 export SCENARIO_TYPE=${SCENARIO_TYPE:=node_scenarios}
@@ -16,7 +17,6 @@ export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/node_scenario.yaml}
 export VERIFY_SESSION=${VERIFY_SESSION:="false"}
 export SKIP_OPENSHIFT_CHECKS=${SKIP_OPENSHIFT_CHECKS:="false"}
 export KUBE_CHECK=${KUBE_CHECK:=True}
-export DISABLE_SSL_VERIFICATION=${DISABLE_SSL_VERIFICATION:=False}
 
 # Baremetal vars
 export BMC_USER=${BMC_USER:=""}
