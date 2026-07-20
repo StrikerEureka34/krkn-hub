@@ -96,16 +96,16 @@
         "description": "Duration to wait for completion of node scenario injection",
         "variable": "TIMEOUT",
         "type": "number",
-        "default": "300",
+        "default": "240",
         "required": "false"
     },
     {
-        "name": "max-retries",
-        "short_description": "Max Retries",
-        "description": "Number of times to retry the node action before giving up",
-        "variable": "MAX_RETRIES",
+        "name": "poll-interval",
+        "short_description": "Poll Interval",
+        "description": "Seconds between node status checks during the scenario",
+        "variable": "POLL_INTERVAL",
         "type": "number",
-        "default": "3",
+        "default": "15",
         "required": "false"
     },
     {
