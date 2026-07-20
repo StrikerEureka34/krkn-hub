@@ -8,9 +8,9 @@ export NODE_NAME=${NODE_NAME:=""}
 export INSTANCE_COUNT=${INSTANCE_COUNT:=1}
 export RUNS=${RUNS:=1}
 export CLOUD_TYPE=${CLOUD_TYPE:="aws"}
-export TIMEOUT=${TIMEOUT:=300}
-export MAX_RETRIES=${MAX_RETRIES:=3}
+export TIMEOUT=${TIMEOUT:=240}
 export DURATION=${DURATION:=120}
+export POLL_INTERVAL=${POLL_INTERVAL:=15}
 export PARALLEL=${PARALLEL:=false}
 export SCENARIO_TYPE=${SCENARIO_TYPE:=node_scenarios}
 export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/node_scenario.yaml}
