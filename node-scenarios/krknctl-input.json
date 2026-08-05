@@ -197,6 +197,15 @@
         "required": "false"
     },
     {
+        "name": "disks",
+        "short_description": "Disk List [*Bare Metal only*]",
+        "description": "List of disks for baremetal nodes - format: [\"sda\", \"sdb\"]",
+        "variable": "DISKS",
+        "type": "string",
+        "default": "",
+        "required": "false"
+    },
+    {
         "name": "ibmc-address",
         "short_description": "IBM Cloud URL [*IBM Cloud only*]",
         "description": "IBM Cloud URL",
