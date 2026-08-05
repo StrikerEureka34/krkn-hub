@@ -8,9 +8,12 @@ export NODE_NAME=${NODE_NAME:=""}
 export INSTANCE_COUNT=${INSTANCE_COUNT:=1}
 export RUNS=${RUNS:=1}
 export CLOUD_TYPE=${CLOUD_TYPE:="aws"}
-export TIMEOUT=${TIMEOUT:=180}
+# Seconds to wait for a node to reach the expected state before giving up
+export TIMEOUT=${TIMEOUT:=200}
 export DURATION=${DURATION:=120}
 export PARALLEL=${PARALLEL:=false}
+# Seconds to wait for a drain to finish before moving on to the next node
+export DRAIN_TIMEOUT=${DRAIN_TIMEOUT:=60}
 export SCENARIO_TYPE=${SCENARIO_TYPE:=node_scenarios}
 export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/node_scenario.yaml}
 export VERIFY_SESSION=${VERIFY_SESSION:="false"}
@@ -22,4 +25,3 @@ export DISABLE_SSL_VERIFICATION=${DISABLE_SSL_VERIFICATION:=False}
 export BMC_USER=${BMC_USER:=""}
 export BMC_PASSWORD=${BMC_PASSWORD:=""}
 export BMC_ADDR=${BMC_ADDR:=""}
-export DISKS=${DISKS:=""}
