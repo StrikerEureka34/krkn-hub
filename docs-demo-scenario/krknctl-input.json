@@ -17,6 +17,8 @@
   },
   {
     "name": "grace-period",
+    "short_description": "Grace period",
+    "description": "Seconds to wait after the fault before the probe reads the target",
     "variable": "GRACE_PERIOD",
     "type": "number",
     "default": "45"
