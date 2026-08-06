@@ -197,10 +197,12 @@
         "required": "false"
     },
     {
-        "name": "drain-timeout",
-        "variable": "DRAIN_TIMEOUT",
-        "type": "number",
-        "default": "120",
+        "name": "disks",
+        "short_description": "Disk List [*Bare Metal only*]",
+        "description": "List of disks for baremetal nodes - format: [\"sda\", \"sdb\"]",
+        "variable": "DISKS",
+        "type": "string",
+        "default": "",
         "required": "false"
     },
     {
