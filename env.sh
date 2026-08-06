@@ -56,7 +56,7 @@ export KUBECONFIG=${KRKN_KUBE_CONFIG}
 export KRKN_DEBUG=${KRKN_DEBUG:="False"}
 
 # Health check configuration
-export GLOBAL_PROBE_TIMEOUT=${GLOBAL_PROBE_TIMEOUT:=90}
+export GLOBAL_PROBE_TIMEOUT=${GLOBAL_PROBE_TIMEOUT:=90}   # Seconds a health probe may run before it counts as failed
 export HEALTH_CHECK_INTERVAL=${HEALTH_CHECK_INTERVAL:=2}
 export HEALTH_CHECK_URL=${HEALTH_CHECK_URL:=""}
 export HEALTH_CHECK_BEARER_TOKEN=${HEALTH_CHECK_BEARER_TOKEN:=""}
