@@ -13,7 +13,6 @@ export CONNECTIONS=${CONNECTIONS:="100"}
 export TIMEOUT=${TIMEOUT:="10s"}
 export KEEPALIVE=${KEEPALIVE:="true"}
 export HTTP2=${HTTP2:="true"}
-export FOLLOW_REDIRECTS=${FOLLOW_REDIRECTS:="true"}
 export INSECURE=${INSECURE:="false"}
 
 export SCENARIO_TYPE=${SCENARIO_TYPE:=http_load_scenarios}
