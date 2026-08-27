@@ -11,9 +11,9 @@ export CLOUD_TYPE=${CLOUD_TYPE:="aws"}
 export TIMEOUT=${TIMEOUT:=180}
 export DURATION=${DURATION:=120}
 export PARALLEL=${PARALLEL:=false}
-export SCENARIO_TYPE=${SCENARIO_TYPE:=node_scenarios}
-export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/node_scenario.yaml}
-export VERIFY_SESSION=${VERIFY_SESSION:="false"}
+export SCENARIO_TYPE=${SCENARIO_TYPE:=node_scenarios}   # Plugin key krkn dispatches node actions on, fixed by the image
+export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/node_scenario.yaml}   # Scenario file the image copies in, fixed by the image
+export VERIFY_SESSION=${VERIFY_SESSION:="false"}   # Verify the cloud session before running, see `docs/node-scenarios.md
 export SKIP_OPENSHIFT_CHECKS=${SKIP_OPENSHIFT_CHECKS:="false"}
 export KUBE_CHECK=${KUBE_CHECK:=True}
 export DISABLE_SSL_VERIFICATION=${DISABLE_SSL_VERIFICATION:=False}

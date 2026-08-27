@@ -5,6 +5,6 @@ export DURATION=${DURATION:=600}
 export NAMESPACE=${NAMESPACE:=<namespace>}
 export POD_SELECTOR=${POD_SELECTOR:="{}"}
 export EXCLUDE_LABEL=${EXCLUDE_LABEL:=""}
-export BLOCK_TRAFFIC_TYPE=${BLOCK_TRAFFIC_TYPE:=- Ingress}
+export BLOCK_TRAFFIC_TYPE=${BLOCK_TRAFFIC_TYPE:=- Ingress}   # Accepted values: `Ingress`, `Egress`, or both
 export SCENARIO_TYPE=${SCENARIO_TYPE:=application_outages_scenarios}
 export SCENARIO_FILE=${SCENARIO_FILE:=scenarios/app_outage.yaml}
