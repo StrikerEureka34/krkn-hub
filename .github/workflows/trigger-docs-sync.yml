@@ -3,8 +3,8 @@ name: Trigger docs sync
 # Part of the krkn docs-sync bot: krkn-chaos/website#320.
 #
 #   Watches   env.sh, */env.sh, */krknctl-input.json
-#   Sends     every scenario the push touched to Doc Sync on krkn-chaos/website
-#   Changes   nothing here: its app token is scoped to the website
+#   Sends     every scenario the push touched to Doc Sync on StrikerEureka34/website_2
+#   Changes   nothing here: its app token is scoped to website_2
 #
 # push, not pull_request: a fork PR gets no secrets, and a merge is a push anyway.
 
@@ -63,10 +63,10 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ secrets.DOC_SYNC_BOT_APP_ID }}
-          private-key: ${{ secrets.DOC_SYNC_BOT_APP_PRIVATE_KEY }}
-          owner: krkn-chaos
-          repositories: website
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: StrikerEureka34
+          repositories: website_2
 
       - name: Dispatch doc-sync on the website
         if: steps.scenario.outputs.relevant == 'true'
@@ -78,5 +78,5 @@ jobs:
         run: |
           # One dispatch carrying every changed scenario; the bot opens a single PR.
           gh workflow run doc-sync.lock.yml \
-            --repo krkn-chaos/website \
+            --repo StrikerEureka34/website_2 \
             -f scenarios="$SCENARIOS"
